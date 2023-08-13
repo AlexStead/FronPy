@@ -1,4 +1,4 @@
-from fronpy import np,sm,norm,minimize,utils
+from fronpy import np,sm,norm,utils
 import scipy.special
 
 def density(epsilon,lnsigmav,lnsigmau,lnmu,cost=False):
