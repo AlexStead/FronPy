@@ -7,6 +7,7 @@ setup(
     author="Alexander D. Stead",
     author_email="a.d.stead@leeds.ac.uk",
     include_package_data=True,
+    package_data={'': ['data/*.csv']},
     packages=find_packages(),
     install_requires=[
         "numpy>=1.0",
