@@ -11,6 +11,6 @@ setup(
         "numpy>=1.0",
         "scipy>=1.0",
         "statsmodels>=1.0",
-        "pkg_resources>=1.0"
+        "pkg_resources>=0.14.0"
     ],
 )
