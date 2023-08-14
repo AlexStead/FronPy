@@ -5,7 +5,7 @@ This package was built was to facilitate direct maximum likelihood estimation of
 The package however also includes options to estimate other stochastic frontier specifications, and may be of more general use to anyone who wishes to use Python for stochastic frontier analysis. Currently the package is limited to models of the form
 $$y_i=\boldsymbol{x'_i\beta}+E_i, \qquad
     E_i=V_i-sU_i, \qquad V_i\sim N\left(0,\sigma_v^2\right),$$
-where $U_i$ may be either $N^+\left(0,\sigma_u^2\right)$ (half normal), $N^+\left(\mu,\sigma_u^2\right)$ (truncated normal), $\mathrm{Gamma}\left(\mu,\sigma_u\right)$, or $\mathrm{Exponential}\left(\sigma_u\right)$; N.B. in the latter two cases $\sigma_u$ is a scale parameter. The package may be extended in future in order to accomodate additional specifications.
+where $U_i$ may be either $N^+\left(0,\sigma_u^2\right)$ (half normal), $N^+\left(\mu,\sigma_u^2\right)$ (truncated normal), $\mathrm{Gamma}\left(\mu,\sigma_u\right)$, or $\mathrm{Exponential}\left(\sigma_u\right)$; N.B. in the latter two cases $\sigma_u$ is a scale parameter. For a production frontier, $s=1$, while for a cost frontier, $s=-1$. The package may be extended in future in order to accomodate additional specifications.
 
 ## Installation
 Provided you have the `git` package installed, you can install `FronPy` by entering: 
