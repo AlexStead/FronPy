@@ -1,5 +1,8 @@
 import numpy as np
+import pkg_resources
+from scipy.stats import norm
 from scipy.optimize import minimize
+import statsmodels.api as sm
 from . import utils
 from . import nexp
 from . import ng

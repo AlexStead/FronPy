@@ -1,7 +1,4 @@
-import numpy as np
-import statsmodels.api as sm
-from scipy.stats import norm
-from . import utils
+from fronpy import np,sm,norm,utils
 
 def density(epsilon,lnsigmav,lnsigmau,mu,cost=False):
     density = np.exp(lndensity(epsilon,lnsigmav,lnsigmau,mu,cost))
