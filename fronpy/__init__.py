@@ -1,6 +1,7 @@
 import numpy as np
 import statsmodels.api as sm
 from scipy.optimize import minimize
+from scipy.stats import norm
 from . import utils
 from . import nexp
 from . import ng
