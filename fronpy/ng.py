@@ -1,5 +1,8 @@
-from fronpy import np,sm,norm,utils
-import scipy.special
+import numpy as np
+import statsmodels.api as sm
+from scipy.stats import norm
+from scipy.special import pbdv, gamma
+from . import utils
 
 def density(epsilon,lnsigmav,lnsigmau,lnmu,cost=False):
     density = np.exp(lden(epsilon,lnsigmav,lnsigmau,lnmu,cost))
@@ -20,11 +23,11 @@ def efficiency(params,data,predictor='bc',cost=False):
         s = 1
     z = (s*epsilon/sigmav + sigmav/sigmau)
     if predictor == 'bc':
-        efficiency = (np.exp(1/4*(z+sigmav)**2)*scipy.special.pbdv(-mu,z+sigmav)[0]/
-                      (np.exp(1/4*(z)**2)*scipy.special.pbdv(-mu,z)[0]))
+        efficiency = (np.exp(1/4*(z+sigmav)**2)*pbdv(-mu,z+sigmav)[0]/
+                      (np.exp(1/4*(z)**2)*pbdv(-mu,z)[0]))
     if predictor == 'jlms':
-        efficiency = np.exp(-sigmav*scipy.special.gamma(mu+1)/scipy.special.gamma(mu)*
-                            scipy.special.pbdv(-mu-1,z)[0]/scipy.special.pbdv(-mu,z)[0])
+        efficiency = np.exp(-sigmav*gamma(mu+1)/gamma(mu)*
+                            pbdv(-mu-1,z)[0]/pbdv(-mu,z)[0])
     elif predictor == 'mode':
         efficiency = np.exp(-np.maximum(0,-sigmav/2*z-sigmav/2*np.sqrt(z**2+4*(mu-1))))
     return(efficiency)
@@ -39,7 +42,7 @@ def lndensity(epsilon,lnsigmav,lnsigmau,lnmu,cost=False):
         s = 1
     lndensity = ((mu-1)*lnsigmav - 1/2*np.log(2) - 1/2*np.log(np.pi) - mu*lnsigmau -
                  1/2*(epsilon/sigmav)**2 + 1/4*(s*epsilon/sigmav+sigmav/sigmau)**2 +
-                 np.log(scipy.special.pbdv(-mu,s*epsilon/sigmav+sigmav/sigmau)[0]))
+                 np.log(pbdv(-mu,s*epsilon/sigmav+sigmav/sigmau)[0]))
     return lndensity
 
 def lnlikelihood(params,data,cost=False):
