@@ -1,4 +1,5 @@
 import numpy as np
+import statsmodels.api as sm
 from scipy.optimize import minimize
 from . import utils
 from . import nexp
