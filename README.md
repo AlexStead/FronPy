@@ -21,7 +21,7 @@ ngmodel
 ```
 In the final line, `ngmodel` produces rather a lot of output, but is useful to see all of the outputs produced by the `fronpy.estimate`. For example, we can see that `ngmodel.lnlikelihood` would give us the log-likelihood, `ngmodel.beta` would give us the estimated frontier parameters, `ngmodel.eff_bc` would give us E[e^(-U_i)|E_i=ε_i] for each observation, and so on. Note that currently, `fronpy.estimate` requires a `numpy.ndarray` with rows representing observations and columns representing variables, where:
 - all data are numeric.
-- the first column contains the dependent variable and the remaining columns.
+- the first column contains the dependent variable.
 - columns 2,...,n contain the independent variables, including a constant if desired.
 - there are no missing, `NaN`, `inf`, `-inf` or similarly invalid values.
 The package then assumes that the frontier is linear in its parameters, e.g. Cobb-Douglas or translog; note that any interactions must be included as columns in the `numpy.ndarray`. The package may be generalised in future to allow for arbitrary functional forms.
