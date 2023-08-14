@@ -1,4 +1,4 @@
-from fronpy import np,sm,norm,utils
+from . import np,sm,norm,utils
 
 def density(epsilon,lnsigmav,lnsigmau,mu,cost=False):
     density = np.exp(lndensity(epsilon,lnsigmav,lnsigmau,mu,cost))

@@ -1,5 +1,5 @@
-from fronpy import np
-from fronpy import pkg_resources
+from . import np
+import pkg_resources
 
 def dataset(filename):
     path = pkg_resources.resource_filename('fronpy', 'data/' + filename)
