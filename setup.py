@@ -10,8 +10,8 @@ setup(
     package_data={'fronpy': ['data/*.csv']},
     packages=find_packages(),
     install_requires=[
-        "numpy>=1.0",
-        "scipy>=1.0",
+        "numpy>=1.25.2",
+        "scipy>=1.11.1",
         "statsmodels>=0.14.0"
     ],
 )
