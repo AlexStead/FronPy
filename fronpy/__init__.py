@@ -6,3 +6,4 @@ __all__ = [
 
 from .funcs import estimate
 from .funcs import dataset
+from .funcs import meanefficiency
