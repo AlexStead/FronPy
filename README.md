@@ -32,4 +32,4 @@ In the final line, `ngmodel` produces rather a lot of output, but is useful to s
 The package then assumes that the frontier is linear in its parameters, e.g. Cobb-Douglas or translog; note that any interactions must be included as columns in the `numpy.ndarray`. The package may be generalised in future to allow for arbitrary functional forms.
 
 ## Linked publications
-- Stead AD. 2023. Maximum likelihood estimation of normal-gamma and normal-Nakagami stochastic frontier models. Working paper, University of Leeds.
+- Stead AD. 2024. Maximum likelihood estimation of normal-gamma and normal-Nakagami stochastic frontier models. _Journal of Productivity Analysis_. DOI: [10.1007/s11123-024-00742-2](https://doi.org/10.1007/s11123-024-00742-2)
