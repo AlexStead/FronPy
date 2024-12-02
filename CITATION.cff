@@ -6,6 +6,6 @@ authors:
     orcid: "https://orcid.org/0000-0002-7836-3827"
 title: "FronPy: A Python package for frontier analysis"
 version: 0.1.5
-doi: 10.5281/zenodo.14262817
+doi: 10.5281/zenodo.14262815
 date-released: 2024-12-02
 url: "https://github.com/AlexStead/FronPy"
