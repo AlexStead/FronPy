@@ -83,7 +83,7 @@ def efficiency(params,data,model='nhn',predictor='bc',cost=False,mpmath=False):
         X = data[:,1:k+1]
         b = params[0:k]
         epsilon = (y - X @ b)
-        if model in ('nhn','nexp'):
+        if model in ('nhn','nexp','nr'):
             sigmav = np.exp(params[-2])
             sigmau = np.exp(params[-1])
         elif model in ('ntn','ng','nnak'):
@@ -164,8 +164,19 @@ def efficiency(params,data,model='nhn',predictor='bc',cost=False,mpmath=False):
                 else:
                     raise ValueError("Unknown predictor:", predictor)
         elif model == 'nr':
+            sigma = np.sqrt(2*sigmav**2+sigmau**2)
+            z =  (s*epsilon*sigmau/sigmav)/sigma
             if predictor == 'bc':
-                return ()
+                return (np.exp(1/2*(z+sigmav*sigmau/sigma)**2-1/2*z**2)*
+                        (np.exp(-1/2*(z+sigmav*sigmau/sigma)**2)-np.sqrt(np.pi/2)*(z+sigmav*sigmau/sigma)*
+                         scipy.special.erfc(1/np.sqrt(2)*(z+sigmav*sigmau/sigma)))/
+                         (np.exp(-1/2*z**2)-np.sqrt(np.pi/2)*z*scipy.special.erfc(z/np.sqrt(2))))
+            elif predictor == 'jlms':
+                    return (np.exp(-2*sigmav*sigmau/sigma*
+                            ((np.sqrt(np.pi/8)*(1+z**2)*scipy.special.erfc(z/np.sqrt(2))-z/2*np.exp(-z**2/2))/
+                            (np.exp(-z**2/2)-np.sqrt(np.pi/2)*z*scipy.special.erfc(z/np.sqrt(2))))))
+            elif predictor == 'mode':
+                    return (np.exp(-sigmav*sigmau/(2*sigma)*(np.sqrt(z**2+4)-z)))
             else:
                     raise ValueError("Unknown predictor:", predictor)
     else:
@@ -248,7 +259,7 @@ def lndensity_fft(epsilon,lnsigmav,lnsigmau,lnmu,mu,epsilonbar,model='nhn',cost=
     
 def meanefficiency(params,model='nhn',p1=0,p2=1,mpmath=False):
     if model in ('nhn','ntn','nexp','ng','nnak','nr'):
-        if model in ('nhn','nexp'):
+        if model in ('nhn','nexp','nr'):
             sigmau = np.exp(params[-1])
         elif model in ('ntn','ng','nnak'):
             sigmau = np.exp(params[-2])
@@ -261,6 +272,8 @@ def meanefficiency(params,model='nhn',p1=0,p2=1,mpmath=False):
                 return np.exp(sigmau**2/2)*scipy.special.erfc(sigmau/np.sqrt(2))
             if model == 'nexp':
                 return 1/(1+sigmau)
+            if model == 'nr':
+                return (1-np.sqrt(np.pi)*sigmau/2*np.exp((sigmau/2)**2)*scipy.special.erfc(sigmau/2))
             if model == 'ntn':
                 return (np.exp(sigmau**2/2-mu)*
                         (scipy.special.erfc((sigmau**2-mu)/(np.sqrt(2)*sigmau)))/
@@ -278,6 +291,18 @@ def meanefficiency(params,model='nhn',p1=0,p2=1,mpmath=False):
                 while True:
                     summand = (1/scipy.special.factorial(k)*(-sigmau/np.sqrt(mu))**k*scipy.special.poch(mu,k/2)*
                                scipy.special.gammainc(mu+k/2,scipy.special.gammaincinv(mu,p2))/p2)
+                    if np.abs(summand) < precision:
+                        break
+                    meaneff += summand
+                    k += 1
+                return meaneff
+            if model == 'nr':
+                k = 0
+                meaneff = 0
+                precision = np.finfo(float).eps
+                while True:
+                    summand = ((-sigmau)**k/scipy.special.factorial(k)*scipy.special.gamma(1+k/2)*
+                               scipy.special.gammainc(1+k/2,-np.log(1-p2))/p2)
                     if np.abs(summand) < precision:
                         break
                     meaneff += summand

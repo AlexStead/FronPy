@@ -1,0 +1,15 @@
+citHeader("To cite FronPy in publications use:")
+
+citEntry(entry="Manual",
+         title = "FronPy: A Python package for frontier analysis",
+         author = personList(as.person("Alexander D. Stead")),
+         year = "2024",
+         note = "Python package version 0.1.2",
+         url = "https://github.com/AlexStead/FronPy",
+         textVersion = 
+         paste("Alexander D. Stead (2024).", 
+               "FronPy: A Python package for frontier analysis.",
+               "Python package version 0.1.2.",
+               "https://github.com/AlexStead/FronPy.")
+)
+
