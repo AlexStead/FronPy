@@ -1,12 +1,11 @@
 cff-version: 1.2.0
-message: "To cite FronPy in publications use:"
+message: "If you use this software, please cite it as below."
 authors:
   - family-names: Stead
     given-names: Alexander D.
+    orcid: "https://orcid.org/0000-0002-7836-3827"
 title: "FronPy: A Python package for frontier analysis"
-version: 0.1.4
-year: 2024
+version: 0.1.5
+doi: 10.5281/zenodo.14262817
+date-released: 2024-12-02
 url: "https://github.com/AlexStead/FronPy"
-doi: "DOI-if-available"
-citation: |
-  Alexander D. Stead (2024). FronPy: A Python package for frontier analysis. Python package version 0.1.2. https://github.com/AlexStead/FronPy.
