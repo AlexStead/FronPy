@@ -24,7 +24,7 @@ The code block below estimates the normal-gamma stochastic frontier model, and d
 ```python
 import fronpy
 import numpy as np
-electricity = fronpy.utils.dataset('electricity.csv')
+electricity = fronpy.dataset('electricity.csv')
 
 nexpmodel = fronpy.estimate(electricity,model='nexp',cost=True)
 ngmodel = fronpy.estimate(electricity,model='ng',startingvalues=np.append(nexpmodel.theta,0),cost=True)
