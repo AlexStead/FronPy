@@ -12,7 +12,7 @@ The package produces parameter estimates, standard errors, log-likelihoods, effi
 Currently the package is limited to models of the form
 $$y\_i=\boldsymbol{x'\_i\beta}+E\_i, \qquad
     E\_i=V\_i-sU\_i, \qquad V\_i\sim N\left(0,\sigma\_V^2\right),$$
-where $U\_i$ may be either $N^+\left(0,\sigma\_U^2\right)$ (half normal), $N^+\left(\mu,\sigma\_U^2\right)$ (truncated normal), $\mathrm{Rayleigh}\left(\sigma\_U/2\right)$, $\mathrm{Gamma}\left(\mu,\sigma\_U\right)$, and $\mathrm{Exponential}\left(\sigma\_U\right)$; N.B. in the latter two cases $\sigma_U$ is a scale parameter.
+where $U\_i$ may be either $N^+\left(0,\sigma\_U^2\right)$ (half normal), $N^+\left(\mu,\sigma\_U^2\right)$ (truncated normal), $\mathrm{Rayleigh}\left(\sigma\_U/2\right)$, $\mathrm{Nakagami}\left(\mu,\sigma\_U\right)$ (truncated normal), $\mathrm{Gamma}\left(\mu,\sigma\_U\right)$, and $\mathrm{Exponential}\left(\sigma\_U\right)$; N.B. in the latter three cases $\sigma_U$ is a scale parameter.
 
 All distributional parameters are assumed to be scalars by default, but may be modelled as a function of a vector of covariates, e.g. $\ln\sigma\_{vi}=\boldsymbol{z'\_{vi}\delta\_v}$, or $\ln\sigma\_{ui}=\boldsymbol{z'\_{ui}\delta\_u}$, or $\ln\mu\_{i} = \boldsymbol{z'\_{\mu i}\delta\_\mu}$ (gamma and Nakagami models only), or $\mu\_{i} = \boldsymbol{z'\_{\mu i}\delta\_\mu}$ (truncated normal model only), or combinations of these. 
 
