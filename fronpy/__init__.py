@@ -28,6 +28,7 @@ Optimization terminated successfully.
          Function evaluations: 208
          Gradient evaluations: 26
 """
+__version__ = "1.0.0"
 from . import funcs
 
 __all__ = [
@@ -37,3 +38,7 @@ __all__ = [
 from .funcs import estimate
 from .funcs import dataset
 from .funcs import meanefficiency
+
+def launch_gui():
+    from .gui import launch_gui as gui_launch
+    gui_launch()
