@@ -10,11 +10,11 @@ The package however also includes options to estimate other stochastic frontier 
 The package produces parameter estimates, standard errors, log-likelihoods, efficiency predictors, and more in a convenient format.
 
 Currently the package is limited to models of the form
-$$y_i=\boldsymbol{x'_i\beta}+E_i, \qquad
-    E_i=V_i-sU_i, \qquad V_i\sim N\left(0,\sigma_V^2\right),$$
-where $U_i$ may be either $N^+\left(0,\sigma_U^2\right)$ (half normal), $N^+\left(\mu,\sigma_U^2\right)$ (truncated normal), $\mathrm{Rayleigh}\left(\sigma_U/2\right)$, $\mathrm{Gamma}\left(\mu,\sigma_U\right)$, or $\mathrm{Exponential}\left(\sigma_U\right)$; N.B. in the latter two cases $\sigma_U$ is a scale parameter.
+$$y\_i=\boldsymbol{x'\_i\beta}+E\_i, \qquad
+    E\_i=V\_i-sU\_i, \qquad V\_i\sim N\left(0,\sigma\_V^2\right),$$
+where $U\_i$ may be either $N^+\left(0,\sigma\_U^2\right)$ (half normal), $N^+\left(\mu,\sigma\_U^2\right)$ (truncated normal), $\mathrm{Rayleigh}\left(\sigma\_U/2\right)$, $\mathrm{Gamma}\left(\mu,\sigma\_U\right)$, and $\mathrm{Exponential}\left(\sigma\_U\right)$; N.B. in the latter two cases $\sigma_U$ is a scale parameter.
 
-All distributional parameters are assumed to be scalars by default, but may be modelled as a function of a vector of covariates, $z_i$, e.g. $\ln\sigma_{vi} = \boldsymbol{z'_{vi}\delta_v}$, $\ln\sigma_{ui} = \boldsymbol{z'_{ui}\delta_u}$, $\ln\mu_{i} = \boldsymbol{z'_{\mu i}\delta_\mu}$ (gamma and Nakagami models only), $\mu_{i} = \boldsymbol{z'_{\mu i}\delta_\mu}$ (truncated normal model only). 
+All distributional parameters are assumed to be scalars by default, but may be modelled as a function of a vector of covariates, e.g. $\ln\sigma\_{vi}=\boldsymbol{z'\_{vi}\delta\_v}$, or $\ln\sigma\_{ui}=\boldsymbol{z'\_{ui}\delta\_u}$, or $\ln\mu\_{i} = \boldsymbol{z'\_{\mu i}\delta\_\mu}$ (gamma and Nakagami models only), or $\mu\_{i} = \boldsymbol{z'\_{\mu i}\delta\_\mu}$ (truncated normal model only), or combinations of these. 
 
 
 The package may be extended in future in order to accomodate additional specifications.
