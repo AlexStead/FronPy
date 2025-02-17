@@ -1,5 +1,5 @@
 # FronPy
-# Version 1.0.0
+# Version 1.0.1
 ## Python package for stochastic frontier analysis
 This package was built was to facilitate direct maximum likelihood estimation of the normal-gamma and normal-Nakagami stochastic frontier models using closed-form expressions for the log-likelihood functions and efficiency predictors in terms of the parabolic cylinder function, as explored in the paper:
 

@@ -28,7 +28,7 @@ Optimization terminated successfully.
          Function evaluations: 208
          Gradient evaluations: 26
 """
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 from . import funcs
 
 __all__ = [
