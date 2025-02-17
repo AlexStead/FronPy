@@ -7,9 +7,9 @@ setup(
     author="Alexander D. Stead",
     author_email="a.d.stead@leeds.ac.uk",
     include_package_data=True,
-    package_data={''fronpy': [
+    package_data={'fronpy': [
             'data/*.csv',
-            'misc/*.ico',]}
+            'misc/*.ico',]},
     packages=find_packages(),
     install_requires=[
         "numpy>=1.25.2",
