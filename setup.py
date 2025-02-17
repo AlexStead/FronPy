@@ -9,7 +9,8 @@ setup(
     include_package_data=True,
     package_data={'fronpy': [
             'data/*.csv',
-            'misc/*.ico',]},
+            'misc/*.ico',
+            'misc/*.png',]},
     packages=find_packages(),
     install_requires=[
         "numpy>=1.25.2",
