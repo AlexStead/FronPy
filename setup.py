@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="fronpy",
-    version="1.0.0",
+    version="1.0.2",
     description="Stochastic frontier analysis in Python",
     author="Alexander D. Stead",
     author_email="a.d.stead@leeds.ac.uk",

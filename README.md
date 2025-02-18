@@ -1,5 +1,5 @@
 # FronPy
-# Version 1.0.1
+# Version 1.0.2
 ## Python package for stochastic frontier analysis
 This package was built was to facilitate direct maximum likelihood estimation of the normal-gamma and normal-Nakagami stochastic frontier models using closed-form expressions for the log-likelihood functions and efficiency predictors in terms of the parabolic cylinder function, as explored in the paper:
 
@@ -46,9 +46,9 @@ electricity_df[f'lnq'] = np.log(electricity_df['output'] / electricity_df['outpu
 electricity_df[f'lnw'] = np.log((electricity_df['lprice']/electricity_df['lprice'].mean())/(electricity_df['fprice']/electricity_df['fprice'].mean()))
 electricity_df[f'lnr'] = np.log((electricity_df['cprice']/electricity_df['cprice'].mean())/(electricity_df['fprice']/electricity_df['fprice'].mean()))
 
-nexpmodel = fronpy.estimate(electricity,cost=True,model='nexp')
+nexpmodel = fronpy.estimate(electricity_df,frontier='lnc~np.log(q)+I(np.log(q)**2)+lnw+lnr',cost=True,model='nexp')
 ngmodel = fronpy.estimate(electricity_df,frontier='lnc~np.log(q)+I(np.log(q)**2)+lnw+lnr',cost=True,model='ng',
-                          startingvalues=np.append(nexpmodel.theta,[0,0]))
+                          startingvalues=np.append(nexpmodel.theta,[0]))
 ngmodel
 ```
 
